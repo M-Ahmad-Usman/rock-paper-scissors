@@ -32,3 +32,42 @@ function getHumanChoice() {
         }
     }
 }
+
+let humanScore = 0;
+let computerScore = 0;
+
+function playRound (humanChoice, computerChoice) {
+    
+    if (humanChoice == "rock" && computerChoice == "scissors") {
+        console.log("You won! rock beats scissors");
+        humanScore++;
+    }
+    else if (humanChoice == "rock" && computerChoice == "paper") {
+        console.log("You lose! paper beats rock");
+        computerScore++;
+    }
+    else if (humanChoice == "paper" && computerChoice == "rock") {
+        console.log("You won! paper beats rock");
+        humanScore++;
+    }
+    else if (humanChoice == "paper" && computerChoice == "scissors") {
+        console.log("You lose! scissor beats paper");
+        computerScore++;
+    }
+    else if (humanChoice == "scissors" && computerChoice == "paper") {
+        console.log("You won! scissor beats paper");
+        humanScore++;
+    }
+    else if (humanChoice == "scissors" && computerChoice == "rock") {
+        console.log("You lose! rock beats scissors");
+        computerScore++
+    }
+    else {
+        console.log("Tie");
+    }
+}
+
+const humanChoice = getHumanChoice();
+const computerChoice = getComputerChoice();
+
+playRound(humanChoice, computerChoice);
