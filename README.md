@@ -1,1 +1,2 @@
 # rock-paper-scissors
+<p>This project is done for <strong>The Odin Project's</strong> <a href="https://www.theodinproject.com/lessons/foundations-rock-paper-scissors" style="font-weight: bold;">Rock Paper Scissors</a> assignment.</p>
