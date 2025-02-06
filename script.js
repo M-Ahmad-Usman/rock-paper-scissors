@@ -13,21 +13,18 @@ function getComputerChoice() {
 
 function getHumanChoice() {
     let choice = prompt("Enter your choice: ");
-
+    choice = choice.toLowerCase();
+    
     while (true) {
         switch (choice) {
             case "rock":
-            case "Rock":
                 return "rock";
 
             case "paper":
-            case "Paper":
                 return "paper";
 
             case "scissor":
-            case "Scissor":
             case "scissors":
-            case "Scissors":
                 return "scissors";
 
             default:
