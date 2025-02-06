@@ -78,11 +78,11 @@ function playGame() {
     }
 
     if (humanScore > computerScore)
-        console.log("You won");
+        console.log("You won the game");
     else if (computerScore > humanScore)
-        console.log("You lose");
+        console.log("You lose the game");
     else
-        console.log("Match tied");
+        console.log("Nobody won. Match tied");
 }
 
 playGame();
