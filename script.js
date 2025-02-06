@@ -2,12 +2,36 @@ function getComputerChoice() {
     let choice = Math.floor(Math.random() * 3);
 
     if (choice == 0)
-        return "Rock";
+        return "rock";
 
     else if (choice == 1)
-        return "Paper";
+        return "paper";
 
     else
-        return "Scissors"
+        return "scissors"
 }
 
+function getHumanChoice() {
+    let choice = prompt("Enter your choice: ");
+
+    while (true) {
+        switch (choice) {
+            case "rock":
+            case "Rock":
+                return "rock";
+
+            case "paper":
+            case "Paper":
+                return "paper";
+
+            case "scissor":
+            case "Scissor":
+            case "scissors":
+            case "Scissors":
+                return "scissors";
+
+            default:
+                choice = prompt("Invalid choice. Please enter again");
+        }
+    }
+}
