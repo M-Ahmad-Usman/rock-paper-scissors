@@ -16,7 +16,6 @@ let iterations = 0;
 
 let displayHumanScore = document.querySelector("#human-score").firstElementChild;
 let displayComputerScore = document.querySelector("#computer-score").firstElementChild;
-const tie = document.querySelector("#tie");
 const displayResult = document.querySelector("#result");
 
 function decideWinner() {
@@ -31,58 +30,66 @@ function cleanup() {
     displayHumanScore.textContent = "";
     displayComputerScore.textContent = "";
     displayResult.textContent = "";
-    tie.style.display = "none";
 
     iterations = 0;
     humanScore = 0;
     computerScore = 0;
 }
 
-
+// Updates the score of winner and return true if successful else false.
+// Keeps track of the number of rounds played in iterations variable
 function playRound(humanChoice, computerChoice) {
-
-    if (iterations == numOfRounds) cleanup(); 
-
-    tie.style.display = "none";
 
     if (humanChoice == "rock" && computerChoice == "scissors") {
         humanScore++;
         iterations++;
+        return true;
     }
     else if (humanChoice == "rock" && computerChoice == "paper") {
         computerScore++;
         iterations++;
+        return true;
     }
     else if (humanChoice == "paper" && computerChoice == "rock") {
         humanScore++;
         iterations++;
+        return true;
     }
     else if (humanChoice == "paper" && computerChoice == "scissors") {
         computerScore++;
         iterations++;
+        return true;
     }
     else if (humanChoice == "scissors" && computerChoice == "paper") {
         humanScore++;
         iterations++;
+        return true;
     }
     else if (humanChoice == "scissors" && computerChoice == "rock") {
         computerScore++
         iterations++;
+        return true;
     }
     else {
-        tie.style.display = "block"
+        return false;
     }
-
-    if (iterations == numOfRounds) decideWinner();
 }
 
 document.querySelectorAll("button").forEach((button) => {
     button.addEventListener("click", () => {
         
-        let computerChoice = getComputerChoice();
-        playRound(button.textContent, computerChoice);
-        
+        // Cleaning up the values of previously played round
+        if (iterations == numOfRounds) cleanup(); 
+
+        // Keeps executing playRound untill round is completed successfully (not tie)
+        // Getting user's choice from the text of the button
+        while (!playRound(button.textContent, getComputerChoice()));
+
+        // Updating scores after playing a round
         displayHumanScore.textContent = humanScore;
-        displayComputerScore.textContent = computerScore;   
+        displayComputerScore.textContent = computerScore; 
+        
+        // If all rounds are played: deciding the winner
+        if (iterations == numOfRounds) decideWinner();
     });
 })
