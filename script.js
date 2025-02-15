@@ -20,9 +20,9 @@ const displayResult = document.querySelector("#result");
 
 function decideWinner() {
 
-    if (humanScore > computerScore) displayResult.textContent = "You won the game!";
+    if (humanScore > computerScore) displayResult.textContent = "You won! 🏆";
 
-    else if (computerScore > humanScore) displayResult.textContent = "You lose the game";
+    else if (computerScore > humanScore) displayResult.textContent = "You lose! 😔";
 }
 
 function cleanup() {
