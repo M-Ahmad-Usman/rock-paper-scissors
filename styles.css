@@ -19,7 +19,7 @@ button {
 .score {
     display: flex;
     justify-content: center;
-    width: 50vw;
+    width: 80vw;
     flex-wrap: wrap;
     gap: 20px;
     margin: 20px;
@@ -27,6 +27,7 @@ button {
 
 .score > #human-score, .score > #computer-score {
     margin: 0;
+    padding: 0px 10px;
 }
 
 img {
