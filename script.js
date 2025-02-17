@@ -75,21 +75,23 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-document.querySelectorAll("button").forEach((button) => {
-    button.addEventListener("click", () => {
-        
+/* Using spread operator to convert HTMLCollection into array for 
+iterating through its 3 child divs */
+[...document.querySelector("#user-choice").children].forEach(element => {
+    element.addEventListener("click", () => {
+
         // Cleaning up the values of previously played round
-        if (iterations == numOfRounds) cleanup(); 
+        if (iterations == numOfRounds) cleanup();
 
         // Keeps executing playRound untill round is completed successfully (not tie)
-        // Getting user's choice from the text of the button
-        while (!playRound(button.textContent, getComputerChoice()));
+        // Getting user's choice from id of the div
+        while (!playRound(element.id, getComputerChoice()));
 
         // Updating scores after playing a round
         displayHumanScore.textContent = humanScore;
-        displayComputerScore.textContent = computerScore; 
-        
+        displayComputerScore.textContent = computerScore;
+
         // If all rounds are played: deciding the winner
         if (iterations == numOfRounds) decideWinner();
     });
-})
+});
